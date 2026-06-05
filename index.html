@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>選択制DC 給与明細のポイント｜導入企業向け実務ガイド</title>
+<meta name="description" content="選択制DC（選択制確定拠出年金）導入企業の人事・給与担当者向け。DC選択掛金は控除ではなく給与の枠外で処理する原則、給与明細の作り方、各種計算基礎への参入一覧を1枚で解説。">
+<meta name="author" content="加藤 博（株式会社LSFP）">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2C5F2D">
+
+<!-- ▼公開時に実URLへ差し替えてください -->
+<link rel="canonical" href="https://example.com/sentaku-dc-payslip/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="選択制DC 給与明細のポイント｜導入企業向け実務ガイド">
+<meta property="og:description" content="DC選択掛金は控除ではなく給与の枠外で処理。給与明細の作り方と各種計算基礎への参入一覧を1枚で解説。">
+<meta property="og:url" content="https://example.com/sentaku-dc-payslip/">
+<meta property="og:site_name" content="株式会社LSFP">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://example.com/sentaku-dc-payslip/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="選択制DC 給与明細のポイント｜株式会社LSFP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="選択制DC 給与明細のポイント">
+<meta name="twitter:description" content="DC選択掛金は控除ではなく給与の枠外で処理。給与明細の作り方を1枚で解説。">
+<meta name="twitter:image" content="https://example.com/sentaku-dc-payslip/ogp.png">
+<!-- ▲ここまで差し替え -->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232C5F2D'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='32' font-style='italic' font-weight='700' fill='%23E8F0DC' text-anchor='middle'%3EDC%3C/text%3E%3C/svg%3E">
+
+<style>
+  :root{
+    --bg:#ffffff; --text:#20291f; --text-soft:#566353; --rule:#d3ddc8;
+    --accent:#2C5F2D; --accent-deep:#1F3F1F; --accent-light:#97BC62; --tint:#E8F0DC;
+    --card:#ffffff; --surface:#E8F0DC; --surface-2:#f1f6e9;
+    --band-bg:#1F3F1F; --band-text:#eef3e4; --band-tag:#cfe0b8; --band-em:#bfe39a;
+    --hl-bg:#cfe6b0; --ok:#2C5F2D; --ok-soft:#E8F0DC; --danger:#9a2f25; --danger-soft:#f6ebe8;
+    --heading-font:Georgia,"Yu Gothic",YuGothic,"游ゴシック","Hiragino Sans",serif;
+    --body-font:Georgia,"Yu Gothic",YuGothic,"游ゴシック","Hiragino Sans",Meiryo,sans-serif;
+    --bar:6px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body-font);line-height:1.85;font-size:15px;letter-spacing:.01em;}
+
+  .sheet{width:min(880px,calc(100% - 32px));margin:0 auto;padding:46px 0 80px;}
+
+  .masthead{border-top:5px solid var(--accent-deep);border-bottom:1px solid var(--rule);padding:22px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;}
+  .masthead .brand{font-family:var(--heading-font);font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--accent);}
+  .masthead .kicker{font-size:12px;color:var(--text-soft);letter-spacing:.05em;margin-top:2px;font-style:italic;}
+  .masthead h1{font-family:var(--heading-font);font-weight:800;font-size:30px;line-height:1.3;margin:14px 0 0;letter-spacing:.02em;}
+  .masthead .sub{font-size:13.5px;color:var(--text-soft);margin-top:6px;}
+  .masthead .meta{text-align:right;font-size:11.5px;color:var(--text-soft);line-height:1.7;white-space:nowrap;}
+
+  .lead{margin:26px 0 8px;font-size:15.5px;}
+
+  .principle{margin:22px 0 30px;background:var(--band-bg);color:var(--band-text);border-radius:4px;border-left:var(--bar) solid var(--accent-light);padding:22px 26px;position:relative;overflow:hidden;}
+  .principle::before{content:"原則";position:absolute;right:18px;top:6px;font-family:var(--heading-font);font-size:64px;color:rgba(255,255,255,.07);font-weight:800;}
+  .principle .tag{font-size:11px;letter-spacing:.18em;color:var(--band-tag);font-weight:700;}
+  .principle p{font-family:var(--heading-font);font-size:19px;line-height:1.6;margin:8px 0 0;font-weight:600;}
+  .principle p em{color:var(--band-em);font-style:normal;}
+
+  section{margin:0 0 34px;}
+  .sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--accent-deep);padding-bottom:6px;margin-bottom:16px;}
+  .sec-no{font-family:var(--heading-font);font-weight:800;font-size:22px;color:var(--accent);line-height:1;font-style:italic;}
+  .sec-head h2{font-family:var(--heading-font);font-size:20px;font-weight:700;margin:0;letter-spacing:.02em;}
+  p{margin:0 0 12px;}
+  .note{font-size:13px;color:var(--text-soft);}
+  strong{font-weight:700;}
+  .hl{background:linear-gradient(transparent 62%, var(--hl-bg) 62%);padding:0 1px;font-weight:700;}
+
+  .struct{display:flex;align-items:stretch;gap:0;margin:10px 0 4px;border:1px solid var(--rule);border-radius:6px;overflow:hidden;font-size:13.5px;}
+  .struct .col{padding:12px 14px;flex:1;}
+  .struct .frame-h{background:var(--surface);font-weight:700;text-align:center;padding:7px;border-bottom:1px solid var(--rule);font-size:12.5px;letter-spacing:.04em;}
+  .struct .wrap2{display:flex;}
+  .struct .cash{background:var(--ok-soft);}
+  .struct .dc{background:var(--tint);}
+  .struct .lbl{font-weight:700;font-size:12.5px;}
+  .struct .desc{font-size:11.5px;color:var(--text-soft);line-height:1.6;margin-top:2px;}
+
+  .callout{border-left:4px solid var(--danger);background:var(--danger-soft);padding:14px 18px;border-radius:0 4px 4px 0;margin:14px 0;}
+  .callout .ttl{font-weight:700;color:var(--danger);font-size:14px;margin-bottom:4px;}
+  .callout.ok{border-color:var(--ok);background:var(--ok-soft);}
+  .callout.ok .ttl{color:var(--ok);}
+
+  .slips{display:grid;grid-template-columns:1fr;gap:16px;margin:18px 0 6px;}
+  .slip{background:var(--card);border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.04);}
+  .slip h3{margin:0;font-size:13.5px;font-weight:700;padding:10px 16px;border-bottom:1px solid var(--rule);background:var(--surface);letter-spacing:.03em;display:flex;justify-content:space-between;align-items:center;}
+  .slip h3 .pill{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;color:#fff;background:var(--text-soft);letter-spacing:.04em;}
+  .slip.after h3 .pill{background:var(--accent);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  .pay td{padding:7px 16px;border-bottom:1px dashed var(--rule);font-variant-numeric:tabular-nums;}
+  .pay td:last-child{text-align:right;white-space:nowrap;}
+  .pay .grp{color:var(--accent);font-weight:700;font-size:11.5px;letter-spacing:.08em;background:var(--surface-2);}
+  .pay .cash td:last-child{color:var(--ok);font-weight:700;}
+  .pay .dc td{background:var(--surface-2);}
+  .pay .dc td:last-child{color:var(--accent);font-weight:700;}
+  .pay .sum td{font-weight:700;border-top:1.5px solid var(--accent-deep);border-bottom:none;background:var(--surface-2);}
+  .legend{font-size:12px;color:var(--text-soft);margin-top:8px;line-height:1.7;}
+
+  .matrix{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 4px;background:var(--card);border:1px solid var(--rule);border-radius:6px;overflow:hidden;}
+  .matrix th,.matrix td{border:1px solid var(--rule);padding:9px 8px;text-align:center;}
+  .matrix thead th{background:var(--accent-deep);color:var(--band-text);font-size:12px;font-weight:700;letter-spacing:.02em;}
+  .matrix tbody th{background:var(--surface);text-align:left;font-weight:700;white-space:nowrap;padding-left:12px;}
+  .matrix .yes{color:var(--ok);font-weight:700;}
+  .matrix .no{color:var(--danger);font-weight:800;}
+  .matrix .dcrow td{background:var(--danger-soft);}
+
+  .points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  .pt{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;}
+  .pt .pt-h{font-weight:700;font-size:14px;margin-bottom:4px;}
+  .pt .pt-h span{color:var(--accent);font-family:var(--heading-font);margin-right:6px;font-style:italic;}
+  .pt p{font-size:13px;color:var(--text-soft);margin:0;line-height:1.7;}
+
+  .timing{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px;}
+  .timing th,.timing td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top;}
+  .timing th{width:140px;color:var(--accent);font-weight:700;white-space:nowrap;}
+
+  .check{list-style:none;margin:6px 0 0;padding:0;}
+  .check li{position:relative;padding:8px 0 8px 30px;font-size:14px;border-bottom:1px solid var(--rule);}
+  .check li:last-child{border-bottom:none;}
+  .check li::before{content:"";position:absolute;left:0;top:13px;width:15px;height:15px;border:2px solid var(--accent);border-radius:3px;}
+
+  .foot{margin-top:36px;border-top:1px solid var(--rule);border-left:var(--bar) solid var(--accent-light);padding:16px 0 0 calc(8px + var(--bar));font-size:11.5px;color:var(--text-soft);line-height:1.8;}
+  .foot .src{font-weight:700;color:var(--text);}
+
+  @media (prefers-reduced-motion: no-preference){
+    .principle, section{animation:rise .55s cubic-bezier(.2,.7,.2,1) both;}
+    .principle{animation-delay:.04s;}
+    section:nth-of-type(1){animation-delay:.08s;}
+    section:nth-of-type(2){animation-delay:.12s;}
+    section:nth-of-type(3){animation-delay:.16s;}
+    section:nth-of-type(n+4){animation-delay:.2s;}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+
+  @media (max-width:680px){
+    .points{grid-template-columns:1fr;}
+    .masthead{flex-direction:column;align-items:flex-start;}
+    .masthead .meta{text-align:left;white-space:normal;}
+    .masthead h1{font-size:24px;}
+    .matrix{font-size:11px;}.matrix th,.matrix td{padding:6px 4px;}
+  }
+  @media print{
+    body{background:#fff;font-size:12.5px;}
+    .sheet{width:100%;padding:0 12px;}
+    section{break-inside:avoid;}
+    .slip,.principle,.callout,.pt,.matrix{break-inside:avoid;}
+    .principle,section{animation:none !important;opacity:1 !important;transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="sheet">
+
+    <header class="masthead">
+      <div>
+        <div class="brand">株式会社LSFP</div>
+        <div class="kicker">DC DESIGN SUPPORT ／ 導入企業向け実務メモ</div>
+        <h1>選択制DC<br>給与明細のポイント</h1>
+        <div class="sub">— DC選択掛金は「控除」でも「報酬」でもない。給与の枠外で処理する —</div>
+      </div>
+      <div class="meta">
+        作成：加藤 博<br>CFP® ／ 1級FP技能士<br>1級DCプランナー ／ 企業年金管理士<br>
+        前提：協会けんぽ／企業年金なし<br>
+        上限：月62,000円（2026年12月改正後）
+      </div>
+    </header>
+
+    <p class="lead">選択制DCを導入すると、給与明細の作り方が変わります。掛金の置き場所を1か所間違えるだけで社会保険料・税の軽減効果が消えるため、最初の設計が肝心です。本資料は担当者が押さえるべき要点を1枚に整理したものです。</p>
+
+    <div class="principle">
+      <div class="tag">THE ONE RULE</div>
+      <p>DC選択掛金は給与（報酬）ではなく<em>会社が拠出する掛金</em>。<br>給与明細では<em>控除欄に入れず、給与の枠外（備考）</em>で扱う。</p>
+    </div>
+
+    <section>
+      <div class="sec-head"><span class="sec-no">1</span><h2>用語と構造</h2></div>
+      <p>基本給の一部を、給与とは別枠の「ライフプラン給付（掛金枠）」に振り替えます。各人はこの枠を、DCに拠出するか現金で受け取るかを選びます。総支給額は変えません。</p>
+      <div class="struct">
+        <div class="col" style="flex:.9;background:var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;">ライフプラン給付<br>（掛金枠）</div>
+        <div class="col" style="padding:0;flex:2;">
+          <div class="frame-h">この枠を本人が配分</div>
+          <div class="wrap2">
+            <div class="col cash"><div class="lbl">給与選択金</div><div class="desc">拠出しない分。現金で受取。<strong>給与扱い</strong>（課税・社保・最賃すべて対象）</div></div>
+            <div class="col dc"><div class="lbl">DC選択掛金</div><div class="desc">DCへ拠出する分。<strong>給与外</strong>（課税・社保・最賃の対象外）</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="note">※ 規程・費目の名称は任意です（例：ライフプラン給付＝生涯設計手当／退職準備給付、給与選択金＝前払退職金 など）。</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-no">2</span><h2>なぜ控除欄に入れてはいけないか</h2></div>
+      <p>DC選択掛金は会社が拠出する掛金であり、<span class="hl">給与所得ではありません</span>。だから社会保険料・所得税・住民税の計算対象から外れ、これが軽減効果の源泉になります。</p>
+      <div class="callout">
+        <div class="ttl">✕ 控除欄に入れた場合</div>
+        社会保険料や源泉所得税と同じ「控除」で処理すると、<strong>いったん給与を全額支払い→天引きした</strong>形になります。掛金分も報酬とみなされ、標準報酬月額・課税所得に含まれてしまい、社保削減も所得控除効果も発生しません。
+      </div>
+      <div class="callout ok">
+        <div class="ttl">○ 支給枠を分けた場合</div>
+        拠出分を給与選択金から外し、給与の枠外（備考）で扱えば、報酬月額そのものが下がります。標準報酬月額・課税所得が下がり、本来の軽減効果が成立します。
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-no">3</span><h2>正しい給与明細の作り方（Before / After）</h2></div>
+      <p>例：従来の基本給400,000円。うち62,000円をライフプラン給付（掛金枠）に振り替え（基本給は338,000円に減額）。総支給は400,000円のまま。</p>
+      <div class="slips">
+        <div class="slip">
+          <h3>改定前<span class="pill">BEFORE</span></h3>
+          <table class="pay">
+            <tr class="grp"><td colspan="2">支給</td></tr>
+            <tr><td>基本給</td><td>400,000</td></tr>
+            <tr class="sum"><td>総支給（＝報酬）</td><td>400,000</td></tr>
+          </table>
+        </div>
+        <div class="slip after">
+          <h3>改定後・拠出しない人<span class="pill">AFTER ①</span></h3>
+          <table class="pay">
+            <tr class="grp"><td colspan="2">支給</td></tr>
+            <tr><td>基本給（減額後）</td><td>338,000</td></tr>
+            <tr class="cash"><td>給与選択金（枠の全額を現金受取）</td><td>62,000</td></tr>
+            <tr class="sum"><td>総支給（＝報酬）</td><td>400,000</td></tr>
+            <tr class="dc"><td>［備考・枠外］DC選択掛金</td><td>0</td></tr>
+          </table>
+        </div>
+        <div class="slip after">
+          <h3>改定後・月20,000円を拠出する人<span class="pill">AFTER ②</span></h3>
+          <table class="pay">
+            <tr class="grp"><td colspan="2">支給</td></tr>
+            <tr><td>基本給（減額後）</td><td>338,000</td></tr>
+            <tr class="cash"><td>給与選択金（枠62,000−拠出20,000）</td><td>42,000</td></tr>
+            <tr class="sum"><td>総支給（＝報酬）</td><td>380,000</td></tr>
+            <tr class="dc"><td>［備考・枠外］DC選択掛金</td><td>20,000</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="legend">
+        ・拠出する人（②）は、枠62,000のうち20,000をDCへ。給与選択金が42,000に減り、<strong>総支給（報酬）が380,000に下がる</strong>＝標準報酬月額・課税ベースが下がる。<br>
+        ・<strong>DC選択掛金は控除欄にも支給総額にも入れず、給与の枠外（備考欄）に任意表記</strong>します。給与ソフトも「給与選択金」を支給項目に新設し、DC掛金は枠外で扱う設定が必要です。
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-no">4</span><h2>各種計算基礎への参入一覧</h2></div>
+      <p>同じ「ライフプラン給付」でも、現金受取（給与選択金）と拠出（DC選択掛金）で扱いが正反対になります。これが本資料の核心です。</p>
+      <table class="matrix">
+        <thead>
+          <tr><th>区分</th><th>所得税</th><th>住民税</th><th>標準報酬</th><th>雇用保険</th><th>最賃法</th><th>傷病手当</th><th>割増賃金</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>給与選択金<br>（現金受取）</th><td class="yes">対象</td><td class="yes">対象</td><td class="yes">対象</td><td class="yes">対象</td><td class="yes">含む</td><td class="yes">含む</td><td class="yes">含む</td></tr>
+          <tr class="dcrow"><th>DC選択掛金<br>（DC拠出）</th><td class="no">×</td><td class="no">×</td><td class="no">×</td><td class="no">×</td><td class="no">×</td><td class="no">×</td><td class="yes">含む</td></tr>
+        </tbody>
+      </table>
+      <div class="legend">
+        ・DC選択掛金は、課税・社保・雇用保険・最賃・傷病手当のいずれも対象外。<strong>唯一「割増賃金（残業代）」だけは計算基礎に含めます。</strong><br>
+        ・割増を下げない（不利益変更を避ける）ため、賃金規程に「ライフプラン給付は割増賃金・平均賃金等の算定基礎に含める」旨を追記しておきます。
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-no">5</span><h2>あわせて確認する実務4点</h2></div>
+      <div class="points">
+        <div class="pt"><div class="pt-h"><span>A</span>全員分の明細を変更</div><p>拠出の有無にかかわらず、導入時点で対象者全員の給与明細を新様式（基本給減額＋給与選択金）に変更します。</p></div>
+        <div class="pt"><div class="pt-h"><span>B</span>年末調整・確定申告は不要</div><p>DC選択掛金は給与から差し引いて拠出するのではなく枠外から拠出するため、対象外。マッチング拠出やiDeCo（個人掛金）が所得控除＝年末調整・申告で処理するのと逆なので混同注意。</p></div>
+        <div class="pt"><div class="pt-h"><span>C</span>最低賃金の管理</div><p>DC選択掛金分は最賃の対象賃金に含められません。掛金控除後で最賃を割らないよう、事業主が拠出額を管理します（特に日給・時給制は要注意）。</p></div>
+        <div class="pt"><div class="pt-h"><span>D</span>標準報酬の改定は導入時のみ随時改定</div><p>固定的賃金の変動に当たる導入時は随時改定の対象。導入後は掛金変更で2等級以上動いても随時改定にならず、次の定時決定まで標準報酬月額は変わりません。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-no">6</span><h2>軽減・反映のタイミング</h2></div>
+      <table class="timing">
+        <tr><th>所得税</th><td>掛金分を減額した月（＝制度開始月）から軽減</td></tr>
+        <tr><th>住民税</th><td>翌年6月から軽減（前年所得ベースのため）</td></tr>
+        <tr><th>社会保険料</th><td>標準報酬の等級が下がった場合のみ軽減。1等級＝定時決定（9月分／通常10月支給分から）、2等級以上＝随時改定（導入時のみ・4か月目から）</td></tr>
+        <tr><th>労働保険料<br>（労災・雇用）</th><td>掛金分を増減した月から（当年度の過払分清算は翌年度）。本人控除があるのは実質的に雇用保険料</td></tr>
+      </table>
+      <p class="note" style="margin-top:8px;">※ 等級が変わらなければ社会保険料は変動しません（軽減効果が出ない場合があります）。</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-no">7</span><h2>従業員説明で伝えること</h2></div>
+      <ul class="check">
+        <li>総支給額（額面）は変わらないこと。ただし採用時は基本給が低く見えるため、ライフプラン給付込みの金額で案内すること。</li>
+        <li>拠出分は給与ではなくDC口座へ移り、引き出しは原則60歳以降になること。中途でゼロ円にする（中断）は原則できないこと。</li>
+        <li>標準報酬月額や賃金が下がると、将来の老齢厚生年金（報酬比例部分）のほか、傷病手当金、出産手当金（産休）、育児休業給付金（育休）、介護休業給付金（介護休）、雇用保険の基本手当（失業給付）、労災保険の休業補償給付（業務災害）・休業給付（通勤災害）などが下がる場合があること。</li>
+        <li>源泉徴収票の支払金額が下がるため、住宅ローン審査などに影響しうること（予定者は事前に金融機関へ確認）。</li>
+      </ul>
+    </section>
+
+    <div class="foot">
+      <span class="src">注記・出典</span>　本資料は一般的な選択制DCの実務を整理した概要であり、あいおいニッセイ同和損保「≪選択制DC≫導入に関する留意事項」等を参考にしています。具体的な明細様式・勘定処理・規程文言・税務（特に役員報酬は定期同額給与の要件あり）は、加入する制度の規約、利用する給与計算ソフト、所轄の労基署・税務署、社会保険労務士・税理士の確認に従ってください。掛金上限（月62,000円）は2026年12月改正後・企業年金を実施していない第2号被保険者の場合を前提とし、会社掛金や他制度掛金相当額により実際の枠は変動します。明細の数値は記載方法を示す簡易例で、実際の料率・税率を反映するものではありません。<br>
+      © 株式会社LSFP ／ 加藤 博　CFP® ／ 1級ファイナンシャル・プランニング技能士 ／ 1級DCプランナー（企業年金総合プランナー）／ 企業年金管理士（確定拠出年金）
+    </div>
+
+  </div>
+
+</body>
+</html>
